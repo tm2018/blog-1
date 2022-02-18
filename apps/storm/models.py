@@ -55,10 +55,12 @@ class BigCategory(models.Model):
                                  help_text='用来作为SEO中description,长度参考SEO标准')
     keywords = models.TextField('关键字', max_length=240, default=settings.SITE_KEYWORDS,
                               help_text='用来作为SEO中keywords,长度参考SEO标准')
+    order = models.IntegerField('大分类排序', default=1)
 
     class Meta:
         verbose_name = '大分类'
         verbose_name_plural = verbose_name
+        ordering = ('order',)
 
     def __str__(self):
         return self.name

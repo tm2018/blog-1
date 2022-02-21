@@ -40,12 +40,12 @@ class IndexView(generic.ListView):
 
         # 标签
         tag = self.kwargs.get('tag', 0)
-
+        print(self.kwargs)
         # 导航条
         self.big_slug = self.kwargs.get('bigslug', '')
 
         # 文章分类
-        slug = self.kwargs.get('slug', '')
+        slug = self.kwargs.get('slug', '').replace('/','')
 
         if self.big_slug:
             big = get_object_or_404(BigCategory, slug=self.big_slug)
